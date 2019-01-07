@@ -107,3 +107,6 @@ venv.bak/
 
 # Pycharm stuff
 .idea
+
+# Static files
+/www
