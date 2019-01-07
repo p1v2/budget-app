@@ -12,9 +12,18 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+import dj_database_url
+from dotenv import load_dotenv
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Loading .env file
+DOTENV_FILE = os.environ.get('DOTENV_PATH', os.path.join(BASE_DIR, '.env'))
+if os.path.exists(DOTENV_FILE):
+    load_dotenv(DOTENV_FILE)
+else:
+    DOTENV_FILE = None
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -76,10 +85,7 @@ WSGI_APPLICATION = 'budget.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"), conn_max_age=600)
 }
 
 
