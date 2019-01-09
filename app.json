@@ -2,8 +2,11 @@
   "environments": {
     "test": {
       "scripts": {
-        "test-setup": "pip install -r requirements.txt",
-        "test": "python manage.py test"
+        "addons":[
+        "heroku-postgresql"
+      ],
+        "install-requirements": "pip install -r requirements.txt",
+        "unit-tests": "python manage.py test"
       }
     }
   }
