@@ -1,0 +1,25 @@
+language: python
+python:
+   - "3.6.7"
+postgresql: "10.5"
+# Caching requirements
+cache:
+  - pip
+install:
+    # Installing Project requirements
+    - pip install -r requirements.txt
+    - pushd client/native
+    - npm install
+    - popd
+before_script:
+   # create test past year database
+   - psql -c 'create database test;' -U postgres
+script:
+   # Checking Database Migrations
+   - python manage.py migrate
+   # Running Unit Tests
+   - coverage run manage.py test
+   # Checking code coverage
+   - coverage report --omit=/home/travis/virtualenv/* --fail-under=80
+   # Checking code style
+   - find . -iname "*.py" | xargs python ./deploy/code_style_check.py --ignore-patterns="/home/travis/virtualenv/*" --suggestion-mode=y -f colorized -r y -v --fail-under=9
