@@ -1,12 +1,18 @@
 {
   "environments": {
     "test": {
+      "formation": {
+          "test": {
+            "quantity": 1,
+            "size": "standart-1x"
+          }
+      },
       "scripts": {
         "addons":[
         "heroku-postgresql"
       ],
-        "install-requirements": "pip install -r requirements.txt",
-        "unit-tests": "python manage.py test"
+        "test-setup": "pip install -r requirements.txt",
+        "test": "python manage.py test"
       }
     }
   }
