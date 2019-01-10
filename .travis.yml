@@ -22,4 +22,4 @@ script:
    # Checking code coverage
    - coverage report --omit=/home/travis/virtualenv/* --fail-under=80
    # Checking code style
-   - find . -iname "*.py" | xargs python ./deploy/code_style_check.py --ignore-patterns="/home/travis/virtualenv/*" --suggestion-mode=y -f colorized -r y -v --fail-under=9
+   - python ./deploy/code_style_check.py api budget deploy transactions users --ignore-patterns="/home/travis/virtualenv/*" --ignore=migrations,urls,tests --suggestion-mode=y -f colorized -r y -v --fail-under=9

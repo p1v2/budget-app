@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include
 
-urlpatterns = [
+urlpatterns = [  # pylint: disable=invalid-name
     url('admin/', admin.site.urls),
     url('api/', include('api.urls')),
 ]
