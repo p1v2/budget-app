@@ -23,3 +23,8 @@ script:
    - coverage report --omit=/home/travis/virtualenv/* --fail-under=80
    # Checking code style
    - python ./deploy/code_style_check.py api budget deploy transactions users --ignore-patterns="/home/travis/virtualenv/*" --ignore=migrations,urls,tests --suggestion-mode=y -f colorized -r y -v --fail-under=9
+deploy:
+  provider: heroku
+  api_key: ${HEROKU_API_KEY}
+  app:
+    master: ${HEROKU_APP_NAME}
