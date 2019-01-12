@@ -5,8 +5,8 @@ import django.db.models.deletion
 
 
 def add_default_category(apps, *args, **kwargs):
-    Category = apps.get_model('transactions', 'Category')
-    Category.objects.create(name='Default')
+    SpendingCategory = apps.get_model('transactions', 'SpendingCategory')
+    SpendingCategory.objects.create(name='Default')
 
 
 class Migration(migrations.Migration):
