@@ -1,8 +1,12 @@
 """
 The modules of the transactions app
 """
-from .transaction import Transaction
+from .category import SpendingCategory
+from .account import Account
+from .transaction import SpendingTransaction
 
 __all__ = [
-    'Transaction',
+    'Account',
+    'SpendingTransaction',
+    'SpendingCategory',
 ]

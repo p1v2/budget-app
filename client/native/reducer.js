@@ -24,7 +24,7 @@ export function listTransactions() {
     type: GET_TRANSACTIONS,
     payload: {
       request: {
-        url: `/transactions`
+        url: `/spends`
       }
     }
   };

@@ -5,7 +5,7 @@ from rest_framework.routers import DefaultRouter
 from .views import *  # pylint: disable=unused-wildcard-import
 
 router = DefaultRouter()
-router.register('transactions', TransactionViewSet)
+router.register('spends', SpendingTransactionViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
