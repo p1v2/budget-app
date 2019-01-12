@@ -4,7 +4,8 @@ Module with the transaction model
 from django.db import models
 from djmoney.models.fields import MoneyField
 
-from transactions.models import SpendingCategory, Account
+from transactions.models.account import Account
+from transactions.models.category import SpendingCategory
 
 
 class SpendingTransaction(models.Model):
